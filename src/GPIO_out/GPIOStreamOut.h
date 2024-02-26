@@ -9,7 +9,7 @@ public:
     GPIOStreamOut(ChannelType channel);
     ~GPIOStreamOut();
 
-    bool Write(std::vector<unsigned char> data);
+    bool Write(const std::vector<unsigned char>& data);
 private:
 };
 
