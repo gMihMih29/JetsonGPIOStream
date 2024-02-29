@@ -6,12 +6,13 @@
 
 namespace JetsonGPIOStream {
 class GPIOStreamIn {
-    using ChannelType = std::string;
+    using ChannelType = const char*;
     const int kBitRate = B115200; // TODO
 
 public:
     GPIOStreamIn() = delete;
-    CPIOStreamIn(cosnt std::string& channel);
+    GPIOStreamIn(ChannelType channel);
+    ~GPIOStreamIn();
 
     std::vector<char> Read() const;
 
