@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.8)
+cmake_minimum_required (VERSION 3.2)
 
 project (jetson_gpio_stream)
 
@@ -13,11 +13,22 @@ install(TARGETS ${PROJECT_NAME})
 
 # Включите подпроекты.
 add_subdirectory(src)
-
 link_directories(GPIO_in)
 
-target_link_libraries(${PROJECT_NAME} GPIO_in)
+add_subdirectory(JetsonGPIO)
 
+# include(FetchContent)
+# FetchContent_Declare(
+#   JetsonGPIO 
+#   GIT_REPOSITORY https://github.com/pjueon/JetsonGPIO.git 
+#   GIT_TAG master
+# )
+# FetchContent_MakeAvailable(JetsonGPIO)
+
+# target_link_libraries(mytarget JetsonGPIO::JetsonGPIO)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE GPIO_in JetsonGPIO)
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
 # add_subdirectory(src/Exceptions)
 # link_directories(Exceptions)
 

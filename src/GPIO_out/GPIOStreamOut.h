@@ -9,8 +9,9 @@ public:
     GPIOStreamOut(ChannelType channel);
     ~GPIOStreamOut();
 
-    bool Write(const std::vector<unsigned char>& data);
+    void Write(const std::vector<unsigned char>& data);
 private:
+    ChannelType channel_;
 };
 
 }  // namespace JetsonGPIOStream
