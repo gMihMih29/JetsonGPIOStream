@@ -27,7 +27,7 @@ add_subdirectory(JetsonGPIO)
 
 # target_link_libraries(mytarget JetsonGPIO::JetsonGPIO)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE GPIO_in JetsonGPIO)
+target_link_libraries(${PROJECT_NAME} PRIVATE GPIO_in ReadDataFileBin WriteDataFileBin JetsonGPIO)
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
 # add_subdirectory(src/Exceptions)
 # link_directories(Exceptions)
